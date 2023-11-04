@@ -1,0 +1,6 @@
+#FIB
+def rabbits(n,k):
+  if n <= 1:
+    return n
+  else:
+    return rabbits(n-1,k) + k*rabbits(n-2,k)
