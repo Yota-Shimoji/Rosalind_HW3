@@ -1,0 +1,10 @@
+#lexf
+import itertools
+m = 'A B C D'
+k = 4
+
+m_string = m.replace(' ','').strip('\n')
+lexf = [''.join(l) for l in itertools.product(m_string,repeat = k)]
+lexf = sorted(lexf)
+for a in lexf:
+    print(a)
