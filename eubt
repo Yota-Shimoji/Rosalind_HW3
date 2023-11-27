@@ -1,0 +1,37 @@
+#eubt
+def eubt(lst, new_item):
+    ans = []
+    for i in range(1,len(lst)-2):
+        k = -1
+        if not lst[i] in '(),;':
+            k = i
+        if lst[i]=='(':
+            m=1
+            for k in range(i+1, len(lst)):
+                if lst[k]=='(':
+                    m +=1
+                elif lst[k]==')':
+                    m -=1
+                if m == 0:
+                    break
+        if k!=-1:
+            temp =  lst[:i] + ['('] + lst[i:k+1] + [','] + [new_item] + [')'] + lst[k+1:]
+            ans.append(temp)
+    return ans
+
+inFile = open('/content/rosalind_eubt.txt', 'r')
+wordList = inFile.read().split()
+
+eubt_tree = [['(', '(', wordList[1], ',', wordList[2], ')', ')', wordList[0], ';']]
+new_items = wordList[3:]
+
+for new_item in new_items:
+    temp = []
+    for tree in eubt_tree:
+
+        temp2 = eubt(tree, new_item)
+        temp = temp + temp2
+    eubt_tree = temp[:]
+
+for tree in eubt_tree:
+    print (''.join(tree))
