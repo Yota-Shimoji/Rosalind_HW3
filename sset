@@ -1,0 +1,11 @@
+#sset
+import math
+
+n = 904
+sset_list = []
+
+for k in range(0,n+1):
+    k_combs = math.factorial(n) / (math.factorial(k) * math.factorial(n-k))
+    sset_list.append(k_combs)
+
+print(sum(c) % 1000000)
