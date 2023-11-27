@@ -1,0 +1,17 @@
+#perm
+n= 5
+#m = [1,2,3,4,5,6,7]
+
+from itertools import permutations
+from math import factorial
+
+
+def main():
+        nums = ''.join(map(str, list(range(1, n + 1))))
+        combs = permutations(nums, n)
+        print(factorial(n))
+        print('\n'.join((map(lambda comb: ' '.join(comb), combs))))
+
+
+if __name__ == "__main__":
+    main()
