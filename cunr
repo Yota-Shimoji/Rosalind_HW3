@@ -1,0 +1,12 @@
+#cunr
+
+def cunr(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * cunr(n - 2)
+
+if __name__ == '__main__':
+    n = 806
+    
+    print(cunr(2 * n - 5) % 1000000)
